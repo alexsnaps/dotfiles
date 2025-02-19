@@ -23,7 +23,8 @@ fullscreen=true
 #font-family = Hasklug Nerd Font Mono
 font-family = CaskaydiaCove Nerd Font
 font-size = 13
-theme = catppuccin-mocha
+#theme = catppuccin-mocha
+theme = tokyonight_moon 
 command = tmux new -As0
 # window-padding-x = 2
 #

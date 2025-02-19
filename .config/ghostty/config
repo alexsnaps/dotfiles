@@ -27,6 +27,7 @@ font-size = 13
 theme = tokyonight_moon 
 #command = tmux new -As0
 split-divider-color = #DDDDDD
+unfocused-split-opacity = 0.85
 # window-padding-x = 2
 #
 # # Spacing around the equals sign does not matter.

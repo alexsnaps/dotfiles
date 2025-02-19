@@ -25,7 +25,8 @@ font-family = CaskaydiaCove Nerd Font
 font-size = 13
 #theme = catppuccin-mocha
 theme = tokyonight_moon 
-command = tmux new -As0
+#command = tmux new -As0
+split-divider-color = #DDDDDD
 # window-padding-x = 2
 #
 # # Spacing around the equals sign does not matter.

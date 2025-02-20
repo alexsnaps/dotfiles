@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("n", "]x", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
     vim.keymap.set("n", "[x", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
 
+    vim.keymap.set("i", "<M-CR>", vim.lsp.buf.code_action, { desc = "Code Actions" })
 
     local map = function(keys, func, desc, mode)
       mode = mode or 'n'

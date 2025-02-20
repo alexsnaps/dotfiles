@@ -25,6 +25,14 @@ zinit snippet OMZP::kubectl
 
 fpath+=~/.cache/zinit/completions
 
+# Set up fzf key bindings and fuzzy completion
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+source <(fzf --zsh)
+
 autoload -U compinit && compinit
 
 zinit cdreplay -q
@@ -45,11 +53,13 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-alias ls=exa
+alias ls="eza --color=always --icons=always --git"
 alias cat=bat
 alias vi=nvim
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
-source /home/alxs/.config/broot/launcher/bash/br
+[[ ! -f ~/.config/broot/launcher/bash/br ]] || source /home/alxs/.config/broot/launcher/bash/br
+
+export BAT_THEME=base16

@@ -1,6 +1,12 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('dev-lsp-attach', { clear = true }),
   callback = function(event) 
+    local format_sync_grp = vim.api.nvim_create_augroup("RustaceanFormat", {})
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function() vim.lsp.buf.format() end,
+      group = format_sync_grp,
+    })
     vim.keymap.set("n", "K", function()
       vim.cmd.RustLsp({'hover', 'actions'})
     end,
@@ -23,6 +29,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
     map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
     map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+    map('<leader>cf', vim.lsp.buf.format, '[C]ode [F]ormat', { 'n', 'x' })
     map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
   end
 })

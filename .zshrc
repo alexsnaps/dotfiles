@@ -20,11 +20,10 @@ zinit light zsh-users/zsh-autosuggestions
 
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-#zinit snippet OMZP::rust
+zinit snippet OMZP::rust
 zinit snippet OMZP::kubectl
 
-rustup completions zsh > ~/Downloads/_rustup
-rustup completions zsh cargo > ~/Downloads/_cargo
+fpath+=~/.cache/zinit/completions
 
 autoload -U compinit && compinit
 

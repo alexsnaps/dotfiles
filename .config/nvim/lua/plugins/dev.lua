@@ -1,9 +1,31 @@
-vim.keymap.set("n", "K", function()
-    vim.cmd.RustLsp({'hover', 'actions'})
-  end,
-  { silent = true, buffer = bufnr })
-vim.keymap.set("n", "]x", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
-vim.keymap.set("n", "[x", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('dev-lsp-attach', { clear = true }),
+  callback = function(event) 
+    vim.keymap.set("n", "K", function()
+      vim.cmd.RustLsp({'hover', 'actions'})
+    end,
+    { silent = true, buffer = bufnr })
+
+    vim.keymap.set("n", "]x", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
+    vim.keymap.set("n", "[x", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
+
+
+    local map = function(keys, func, desc, mode)
+      mode = mode or 'n'
+      vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+    end
+
+    map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+    map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+    map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+    map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+    map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+    map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+    map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+    map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+  end
+})
+
 return {
   -- { "folke/which-key.nvim", lazy = true },
     { -- Collection of various small independent plugins/modules

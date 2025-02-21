@@ -62,7 +62,7 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-alias ls="eza --color=always --icons=always --git"
+alias ls="eza --color=always --icons=always --git -1"
 alias cat=bat
 alias vi=nvim
 alias pbcopy='xsel --clipboard --input'

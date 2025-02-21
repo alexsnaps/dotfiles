@@ -1,0 +1,20 @@
+[terminal.shell]
+program = "tmux"
+args = ["new", "-As0"]
+
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/tokyo_night_storm.toml"
+]
+
+[window]
+decorations = "none"
+startup_mode = "Fullscreen"
+opacity = 1 
+
+[font]
+#normal = { family = "FiraMono Nerd Font Mono" }
+#normal = { family = "Hasklug Nerd Font Mono" }
+normal = { family = "CaskaydiaCove Nerd Font" }
+size = 13
+#offset = { x = 0, y = 2 }

@@ -65,8 +65,8 @@ setopt hist_find_no_dups
 alias ls="eza --color=always --icons=always --git -1"
 alias cat=bat
 alias vi=nvim
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
+[[ ! -x /usr/bin/xsel ]] || alias pbcopy='xsel --clipboard --input'
+[[ ! -x /usr/bin/xsel ]] || alias pbpaste='xsel --clipboard --output'
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
 [[ ! -f ~/.config/broot/launcher/bash/br ]] || source /home/alxs/.config/broot/launcher/bash/br

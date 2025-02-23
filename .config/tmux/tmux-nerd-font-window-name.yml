@@ -1,8 +1,8 @@
 config:
   fallback-icon: ""
-  multi-pane-icon: ""
-  #show-name: true # show the window name with the icon (defaults to false)
-  #icon-position: "left" # show the icon to the "left" or "right" of the window name (defaults to left)
+  #multi-pane-icon: ""
+  show-name: true
+  icon-position: "left"
 
 icons:
   neomutt: ""

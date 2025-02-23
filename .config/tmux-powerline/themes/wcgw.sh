@@ -74,7 +74,7 @@ if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_CURRENT" ]; then
 		"#[$(format regular)]"
 		"$TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR"
 		"#[$(format inverse)]"
-		" #I#F "
+		" #I "
 		"$TMUX_POWERLINE_SEPARATOR_THIN"
 		" #W "
 		"#[$(format regular)]"
@@ -93,9 +93,7 @@ fi
 if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_FORMAT" ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
 		"#[$(format regular)]"
-		"  #I#{?window_flags,#F, } "
-		"$TMUX_POWERLINE_SEPARATOR_THIN"
-		" #W "
+		" #W#{?window_last_flag,,}#{?window_bell_flag,,}#{?window_marked_flag,󰃃,}#{?window_activity_flag, ,} "
 	)
 fi
 

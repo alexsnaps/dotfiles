@@ -75,6 +75,7 @@ if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_CURRENT" ]; then
 		"$TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR"
 		"#[$(format inverse)]"
     " #{?#{==:#I,0},󰎡,}#{?#{==:#I,1},󰎤,}#{?#{==:#I,2},󰎧,}#{?#{==:#I,3},󰎪,}#{?#{==:#I,4},󰎭,}#{?#{==:#I,5},󰎱,}#{?#{==:#I,6},󰎳,}#{?#{==:#I,7},󰎶,}#{?#{==:#I,8},󰎹,}#{?#{==:#I,9},󰎼,}#{?#{e|>:#I,9},#I,}"
+    " $TMUX_POWERLINE_SEPARATOR_THIN"
 		" #W "
 		"#[$(format regular)]"
 		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"

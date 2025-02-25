@@ -1,12 +1,15 @@
 return {
   'nvim-telescope/telescope.nvim', branch = 'master',
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  dependencies = { 'nvim-lua/plenary.nvim', 'LinArcX/telescope-changes.nvim' },
   config = function()
     local builtin = require('telescope.builtin')
+    vim.keymap.set('n', '<leader>pp', builtin.registers, { desc = 'Telescope registers' })
     vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
     vim.keymap.set('n', '<leader>fe', builtin.oldfiles, { desc = 'Telescope old files' })
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-    vim.keymap.set('n', '<leader>fc', builtin.commands, { desc = 'Telescope commands' })
+    vim.keymap.set('n', '<leader>fj', builtin.jumplist, { desc = 'Telescope jumplist' })
+    vim.keymap.set('n', '<leader>fc', require('telescope').extensions.changes.changes, { desc = 'Telescope changes' })
+    vim.keymap.set('n', '<leader>fC', builtin.commands, { desc = 'Telescope commands' })
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })

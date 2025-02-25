@@ -44,6 +44,7 @@ map <leader>fi <Action>(FindUsages)
 map <leader>fr <Action>(FindUsages)
 map <leader>ds <Action>(FileStructurePopup)
 nmap <leader>fC <Action>(GotoAction)
+map \\ <Action>(ActivateProjectToolWindow)
 
 imap <C-S-v> $Paste
 imap <C-S-x> $Cut

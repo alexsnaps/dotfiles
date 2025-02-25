@@ -122,7 +122,11 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      require('lspconfig').clangd.setup{}
+      require('lspconfig').gopls.setup{}
+      require('lspconfig').clangd.setup{
+        cmd = "~/go/bin/gopls",
+        root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git")
+      }
     end,
   },
   {

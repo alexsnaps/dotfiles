@@ -30,6 +30,7 @@ Plug 'tpope/vim-commentary'
 let mapleader=" "
 "" Map <leader>d to start debug
 map <leader>rn <Action>(RenameElement)
+map <leader>rr <Action>(RefactoringMenu)
 map <leader>rm <Action>(Move)
 map <leader>cf <Action>(ReformatCode)
 map gI <Action>(GotoImplementation)
@@ -44,6 +45,9 @@ map <leader>fi <Action>(FindUsages)
 map <leader>fr <Action>(FindUsages)
 map <leader>ds <Action>(FileStructurePopup)
 nmap <leader>fC <Action>(GotoAction)
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>ds <Action>(GotoSymbol)
+imap <M-CR> <Action>(ShowIntentionActions)
 map \\ <Action>(ActivateProjectToolWindow)
 
 imap <C-S-v> $Paste

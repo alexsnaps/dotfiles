@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
     map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+    map('<leader>fr', require('telescope.builtin').lsp_references, '[F]ind [R]eferences')
     map('<leader>fi', require('telescope.builtin').lsp_incoming_calls, '[F]ind [I]ncoming calls')
     map('<leader>fo', require('telescope.builtin').lsp_outgoing_calls, '[F]ind [O]utgoing calls')
     map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')

@@ -40,6 +40,11 @@ map <leader>[x <Action>(GotoPreviousError)
 map [b <Action>(NextTab)
 map ]b <Action>(PreviousTab)
 map <leader>fe <Action>(RecentFiles)
+map <leader>fi <Action>(FindUsages)
+map <leader>fr <Action>(FindUsages)
+map <leader>ds <Action>(FileStructurePopup)
+nmap <leader>fC <Action>(GotoAction)
+
 imap <C-S-v> $Paste
 imap <C-S-x> $Cut
 imap <C-S-c> $Copy

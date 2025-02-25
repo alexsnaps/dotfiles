@@ -11,6 +11,8 @@ require("set")
 require("opts")
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', ']b', '<cmd>bn<CR>', { desc = "Next buffer" })
+vim.keymap.set('n', '[b', '<cmd>bp<CR>', { desc = "Previous buffer" })
 
 
 --require("mason").setup()

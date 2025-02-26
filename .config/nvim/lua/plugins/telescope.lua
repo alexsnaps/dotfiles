@@ -1,5 +1,6 @@
 return {
-  'nvim-telescope/telescope.nvim', branch = 'master',
+  'nvim-telescope/telescope.nvim',
+  branch = 'master',
   dependencies = { 'nvim-lua/plenary.nvim', 'LinArcX/telescope-changes.nvim' },
   config = function()
     local builtin = require('telescope.builtin')
@@ -20,8 +21,7 @@ return {
     vim.keymap.set('n', '<leader>gC', builtin.git_commits, { desc = '[g]it [C]ommits' })
     vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = '[g]it [s]tatus' })
     vim.keymap.set('x', '<leader>gc', function()
-      require('telescope.builtin').git_bcommits_range({from = s_start, to = s_end})
+      require('telescope.builtin').git_bcommits_range({ from = s_start, to = s_end })
     end, { desc = '[g]it buffer [c]ommits' })
   end,
 }
-

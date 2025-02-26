@@ -1,6 +1,6 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('dev-lsp-attach', { clear = true }),
-  callback = function(event) 
+  callback = function(event)
     local format_sync_grp = vim.api.nvim_create_augroup("RustaceanFormat", {})
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
@@ -8,9 +8,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
       group = format_sync_grp,
     })
     vim.keymap.set("n", "K", function()
-      vim.cmd.RustLsp({'hover', 'actions'})
-    end,
-    { silent = true, buffer = bufnr })
+        vim.cmd.RustLsp({ 'hover', 'actions' })
+      end,
+      { silent = true, buffer = bufnr })
 
     vim.keymap.set("n", "]x", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
     vim.keymap.set("n", "[x", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
@@ -39,7 +39,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 return {
   -- { "folke/which-key.nvim", lazy = true },
-    { -- Collection of various small independent plugins/modules
+  { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
       -- Better Around/Inside textobjects
@@ -89,41 +89,42 @@ return {
     },
   },
   {
-    'm4xshen/autoclose.nvim', 
+    'm4xshen/autoclose.nvim',
     opts = {
       options = {
         disabled_filetypes = { "text", "mail" },
       }
     }
   },
-  { 
-    'folke/todo-comments.nvim', 
-    event = 'VimEnter', 
-    dependencies = { 
-      'nvim-lua/plenary.nvim' 
-    }, 
-    opts = { 
-      signs = 
-      false
-    }, 
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    },
+    opts = {
+      signs =
+          false
+    },
   },
   {
     "williamboman/mason.nvim",
     config = function()
-      require('mason').setup{}
+      require('mason').setup {}
     end,
   },
   {
     'williamboman/mason-lspconfig.nvim',
     config = function()
-      require('mason-lspconfig').setup{}
+      require('mason-lspconfig').setup {}
     end,
   },
   {
     'neovim/nvim-lspconfig',
     config = function()
-      require('lspconfig').gopls.setup{}
-      require('lspconfig').clangd.setup{
+      require('lspconfig').gopls.setup {}
+      require('lspconfig').lua_ls.setup {}
+      require('lspconfig').clangd.setup {
         cmd = "~/go/bin/gopls",
         root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git")
       }
@@ -171,4 +172,3 @@ return {
     },
   },
 }
-

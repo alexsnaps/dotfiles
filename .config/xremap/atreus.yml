@@ -1,0 +1,8 @@
+modmap:
+  - name: Atreus Swap Ctrl/Super
+    remap:
+      Super_L: Ctrl_L
+      Ctrl_L: Super_L
+    device: 
+      only: Keyboardio Atreus
+

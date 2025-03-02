@@ -33,7 +33,8 @@ client.background       #2F334D
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/Wallpapers/green_tree_desert-wallpaper-5120x2160.jpg fill
+# output * bg ~/Pictures/Wallpapers/lowpoly_street.png fill
+output * bg ~/Pictures/Wallpapers/tokyo_pink.png fill
 #
 # Example configuration:
 #

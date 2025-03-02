@@ -39,6 +39,15 @@
   border-radius: 1rem;
 }
 
+#submap {
+  border-radius: 1rem;
+  margin: 5px;
+  padding: 0 1rem;
+  color: @base;
+  background-color: @sky;
+  margin-left: 1rem;
+}
+
 #tray,
 #backlight,
 #clock,

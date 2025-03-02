@@ -1,4 +1,4 @@
-fullscreen=true
+#fullscreen=true
 # This is the configuration file for Ghostty.
 #
 # This template file has been automatically created at the following
@@ -25,6 +25,7 @@ font-family = CaskaydiaCove Nerd Font
 font-size = 13
 #theme = catppuccin-mocha
 theme = tokyonight_moon 
+background-opacity = 0.92
 #command = tmux new -As0
 split-divider-color = #DDDDDD
 unfocused-split-opacity = 0.85

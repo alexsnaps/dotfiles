@@ -18,6 +18,18 @@ set $term ghostty
 # Your preferred application launcher
 set $menu wmenu-run
 
+### Colors
+# https://thomashunter.name/i3-configurator/
+
+# class                 border  bground text    indicator child_border
+client.focused          #414868 #737aa2 #C8D3F5 #2E9EF4   #285577
+client.focused_inactive #1F2335 #2F334D #C8D3F5 #1F2335   #1F2335
+client.unfocused        #333333 #222222 #C8D3F5 #292D2E   #222222
+client.urgent           #2F343A #414868 #C53B53 #C53B53   #C53B53
+client.placeholder      #000000 #0C0C0C #C8D3F5 #000000   #0C0C0C
+
+client.background       #2F334D
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -35,10 +47,12 @@ output DP-3 {
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000 -e' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000 -e'
+exec swaync
+
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -74,6 +88,7 @@ input "1133:16519:Logitech_G903_LS" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+Escape exec ~/.cargo/bin/yofi
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -212,27 +227,16 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym Print exec grim
-
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    swaybar_command waybar
 }
 
 include /etc/sway/config.d/*
 
-exec ~/.cargo/bin/xremap --device "Keyboardio Atreus" ~/.config/xremap/atreus.yml
-exec protonmail-bridge
-exec openrgb
+exec ~/.cargo/bin/xremap --device "Keyboardio Atreus" ~/.config/xremap/atreus.yml --watch
+exec protonmail-bridge --no-window
+exec openrgb --startminimized

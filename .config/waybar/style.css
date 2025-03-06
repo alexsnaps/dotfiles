@@ -15,14 +15,17 @@
 #workspaces {
   border-radius: 1rem;
   margin: 5px;
+  padding: 5px;
   background-color: @surface0;
   margin-left: 1rem;
+  font-size: 18px;
 }
 
 #workspaces button {
-  color: @lavender;
+  color: @sky;
   border-radius: 1rem;
-  padding: 0.4rem;
+  padding: 0.4rem 0.8rem 0.4rem 0.4rem;
+  margin: 0;
 }
 
 #workspaces button.focused {
@@ -30,12 +33,15 @@
 }
 
 #workspaces button.active {
-  color: @sky;
+  color: @surface0;
+  background-color: @sky;
   border-radius: 1rem;
+  padding: 0.4rem 1.2rem;
+  margin: 0 0.4rem;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
+  color: @sky;
   border-radius: 1rem;
 }
 
@@ -44,7 +50,7 @@
   margin: 5px;
   padding: 0 1rem;
   color: @base;
-  background-color: @sky;
+  background-color: @pink;
   margin-left: 1rem;
 }
 
@@ -52,19 +58,36 @@
 #backlight,
 #clock,
 #battery,
-#pulseaudio,
+#wireplumber,
 #custom-lock,
 #window,
+#cpu,
+#network,
+#memory,
+#temperature,
+#custom-sep,
 #custom-power {
   background-color: @surface0;
   padding: 0.5rem 1rem;
   margin: 5px 0;
 }
 
-#clock {
+#clock, 
+#memory {
   color: @sky;
   border-radius: 0px 1rem 1rem 0px;
   margin-right: 1rem;
+}
+
+#network {
+  color: @sky;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+#temperature {
+  color: @pink;
 }
 
 #battery {
@@ -87,14 +110,15 @@
     border-radius: 0;
 }
 
-#pulseaudio {
+#wireplumber, 
+#cpu {
   color: @sky;
   border-radius: 1rem 0px 0px 1rem;
   margin-left: 1rem;
 }
 
 #custom-music, #window {
-  color: @text;
+  color: @sky;
   border-radius: 1rem;
 }
 

@@ -3,12 +3,38 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-left": ["hyprland/workspaces", "hyprland/submap", "network"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "clock", "temperature", "tray", "custom/lock", "custom/power"],
+    "modules-right": ["cpu", "temperature", "memory", "wireplumber", "clock", "tray"],
     "tray": {
         "icon-size": 21,
         "spacing": 10
+    },
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "1": "󰎤", 
+        "2": "󰎧",
+        "3": "󰎪",
+        "4": "󰎭",
+        "5": "󰎱",
+        "6": "󰎳",
+        "7": "󰎶",
+        "8": "󰎹",
+        "9": "󰎼",
+        "10": "󰎿",
+      },
+    },
+    "hyprland/window": {
+      "format": "{}",
+      "rewrite": {
+        "(.*) YouTube (.*)": " $1",
+        "(.*) Mozilla Firefox": "󰖟 $1",
+        "(.*) \\W Google Search (.*)": "󰜏 $1",
+        "tmux (.*)": " [$1]",
+        "Steam": " Steam",
+        "(.*) - Discord": "󰙯 $1",
+      },
     },
     "custom/music": {
         "format": "  {}",
@@ -19,12 +45,31 @@
         "on-click": "playerctl play-pause",
         "max-length": 50
     },
+    "cpu": {
+      "interval": 1,
+      "format": "{usage:2d}%   {avg_frequency:0.2f}GHz",
+    },
+    "memory": {
+      "interval": 1,
+      "format": "{percentage:2d}%   {used:0.1f}G", 
+    },
+    "network": {
+      "interface": "eno1", 
+      "interval": 1,
+      "format": "󰛶 {bandwidthUpBytes} 󰛴 {bandwidthDownBytes}",
+    },
+    "custom/sep": {
+      "tooltip": false,
+      "format": "|",
+    },
     "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    // "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C ",
-    "format": "{temperatureC}°C "
+     //"thermal-zone": 2,
+     "interval": 1,
+     "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+     "critical-threshold": 90,
+     "format-critical": "{temperatureC}°C  ",
+     "format": "{temperatureC}°C {icon}",
+     "format-icons": ["", "", "", "", ""],
     },
     "clock": {
         "timezone": "America/Montreal",
@@ -32,7 +77,7 @@
         "format-alt": " {:%Y-%m-%d}",
         "format": " {:%H:%M}"
     },
-    "pulseaudio": {
+    "wireplumber": {
         "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}%",
         "format-muted": "",

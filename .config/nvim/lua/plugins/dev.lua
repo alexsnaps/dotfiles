@@ -7,10 +7,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       callback = function() vim.lsp.buf.format() end,
       group = format_sync_grp,
     })
-    vim.keymap.set("n", "K", function()
-        vim.cmd.RustLsp({ 'hover', 'actions' })
-      end,
-      { silent = true, buffer = bufnr })
+    vim.keymap.set("n", "K", vim.lsp.handlers.hover, { silent = true, buffer = bufnr })
 
     vim.keymap.set("n", "]x", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
     vim.keymap.set("n", "[x", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })

@@ -132,12 +132,25 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      require('lspconfig').gopls.setup {}
-      require('lspconfig').lua_ls.setup {}
-      require('lspconfig').clangd.setup {
-        cmd = "~/go/bin/gopls",
-        root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git")
+      require('lspconfig').gopls.setup {
+        --cmd = "~/go/bin/gopls",
+        root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
+        settings = {
+          gopls = {
+            ["ui.inlayhint.hints"] = {
+              compositeLiteralFields = true,
+              compositeLiteralTypes = true,
+              constantValues = true,
+              parameterNames = true,
+              functionTypeParameters = true,
+              assignVariableTypes = true,
+
+            }
+          }
+        },
       }
+      require('lspconfig').lua_ls.setup {}
+      require('lspconfig').clangd.setup {}
     end,
   },
   {

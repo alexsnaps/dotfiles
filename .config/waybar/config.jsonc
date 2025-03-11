@@ -35,6 +35,9 @@
         "tmux (.*)": " [$1]",
         "Steam": " Steam",
         "(.*) - Discord": "󰙯 $1",
+        "(cargo .*)": "󱘗 $1",
+        "(rustc .*)": "󱘗 $1",
+        "(go .*)": " $1",
       },
     },
     "custom/music": {
@@ -79,7 +82,7 @@
         "format": " {:%H:%M}"
     },
     "wireplumber": {
-        "scroll-step": 1, // %, can be a float
+        "scroll-step": 3, // %, can be a float
         "format": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {

@@ -29,6 +29,12 @@ background-opacity = 0.92
 #command = tmux new -As0
 split-divider-color = #DDDDDD
 unfocused-split-opacity = 0.85
+
+keybind = page_up=scroll_page_up
+keybind = page_down=scroll_page_down
+keybind = shift+up=scroll_page_up
+keybind = shift+down=scroll_page_down
+
 # window-padding-x = 2
 #
 # # Spacing around the equals sign does not matter.

@@ -1,8 +1,8 @@
 --vim.opt.clipboard = 'unnamedplus' -- use system keyboard for yank
 
-vim.opt.nu = true         -- set line numbers -- set line numbers
-vim.opt.rnu = true
-vim.opt.cursorline = true -- use relative line numbers
+vim.opt.nu = true  -- set line numbers
+vim.opt.rnu = true -- use relative line numbers
+vim.opt.cursorline = true
 vim.opt.showcmd = false
 
 -- set tab size to 2 spaces

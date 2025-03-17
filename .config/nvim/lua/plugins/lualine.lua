@@ -21,17 +21,17 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   opts = {
     options = {
-      component_separators = { left = '', right = ''},
-      section_separators = { left = '', right = ''},
+      component_separators = { left = '', right = '' },
+      section_separators = { left = '', right = '' },
     },
     extensions = { 'lazy', 'mason', 'neo-tree', 'trouble' },
     sections = {
       lualine_x = {
-        'encoding', 
-        'fileformat', 
+        'encoding',
+        'fileformat',
         {
           get_active_lsp,
-          icon = "📡",
+          icon = "󱤵",
         },
         'filetype',
       },

@@ -23,7 +23,7 @@
 }
 
 #workspaces button {
-  color: @sky;
+  color: @text;
   border-radius: 1rem;
   padding: 0.4rem 0.8rem 0.4rem 0.4rem;
   margin: 0;
@@ -35,14 +35,14 @@
 
 #workspaces button.active {
   color: @surface0;
-  background-color: @sky;
+  background-color: @text;
   border-radius: 1rem;
   padding: 0.4rem 1.2rem;
   margin: 0 0.4rem;
 }
 
 #workspaces button:hover {
-  color: @sky;
+  color: @text;
   border-radius: 1rem;
 }
 
@@ -76,13 +76,13 @@
 
 #clock, 
 #memory {
-  color: @sky;
+  color: @text;
   border-radius: 0px 1rem 1rem 0px;
   margin-right: 1rem;
 }
 
 #network {
-  color: @sky;
+  color: @text;
   border-radius: 1rem;
   margin-right: 1rem;
   margin-left: 1rem;
@@ -105,7 +105,7 @@
 }
 
 #backlight {
-  color: @sky;
+  color: @text;
 }
 
 #backlight, #battery {
@@ -114,13 +114,13 @@
 
 #wireplumber, 
 #cpu {
-  color: @sky;
+  color: @text;
   border-radius: 1rem 0px 0px 1rem;
   margin-left: 1rem;
 }
 
 #custom-music, #window {
-  color: @sky;
+  color: @text;
   border-radius: 1rem;
 }
 

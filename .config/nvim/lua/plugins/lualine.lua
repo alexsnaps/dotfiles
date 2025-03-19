@@ -31,7 +31,7 @@ return {
         'fileformat',
         {
           get_active_lsp,
-          icon = "󱤵",
+          icon = "",
         },
         'filetype',
       },

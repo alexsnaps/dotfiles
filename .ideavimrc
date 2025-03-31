@@ -40,17 +40,19 @@ map gd <Action>(GotoDeclaration)
 map <leader>]x <Action>(GotoNextError)
 map <leader>[x <Action>(GotoPreviousError)
 
-map [b <Action>(NextTab)
-map ]b <Action>(PreviousTab)
-map <leader>fe <Action>(RecentFiles)
+nmap [b <Action>(NextTab)
+nmap ]b <Action>(PreviousTab)
+nmap <leader>fe <Action>(RecentFiles)
 map <leader>fi <Action>(FindUsages)
 map <leader>fr <Action>(FindUsages)
 map <leader>ds <Action>(FileStructurePopup)
-nmap <leader>fC <Action>(GotoAction)
+map <leader>fC <Action>(GotoAction)
 nmap <leader>ff <Action>(GotoFile)
 nmap <leader>ds <Action>(GotoSymbol)
 imap <M-CR> <Action>(ShowIntentionActions)
 map \\ <Action>(ActivateProjectToolWindow)
+
+map <C-CR> <Action>(ActivateTerminalToolWindow)
 
 imap <C-S-v> $Paste
 imap <C-S-x> $Cut

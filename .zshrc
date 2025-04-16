@@ -72,3 +72,4 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 [[ ! -f ~/.config/broot/launcher/bash/br ]] || source /home/alxs/.config/broot/launcher/bash/br
 
 export BAT_THEME=base16
+source ~/.profile

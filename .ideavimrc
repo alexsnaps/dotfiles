@@ -59,6 +59,7 @@ imap <M-CR> <Action>(ShowIntentionActions)
 map \\ <Action>(ActivateProjectToolWindow)
 
 map <C-CR> <Action>(ActivateTerminalToolWindow)
+nmap <S-k> <Action>(QuickJavaDocs)
 
 imap <C-S-v> $Paste
 imap <C-S-x> $Cut

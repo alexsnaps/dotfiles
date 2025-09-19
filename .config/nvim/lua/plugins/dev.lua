@@ -132,7 +132,8 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      require('lspconfig').gopls.setup {
+      --require('lspconfig').gopls.setup {
+      vim.lsp.config['gopls'] = {
         --cmd = "~/go/bin/gopls",
         root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
         settings = {
@@ -149,8 +150,8 @@ return {
           }
         },
       }
-      require('lspconfig').lua_ls.setup {}
-      require('lspconfig').clangd.setup {}
+      vim.lsp.config['luals'] = {}
+      vim.lsp.config['clangd'] = {}
     end,
   },
   {

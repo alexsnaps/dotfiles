@@ -2,7 +2,7 @@ return {
   'nvim-treesitter/nvim-treesitter',
   config = function()
     require("nvim-treesitter.configs").setup {
-      ensure_installed = { "lua", "rust", "toml" },
+      ensure_installed = { "lua", "rust", "toml", "zig" },
       auto_install = true,
       highlight = {
         enable = true,

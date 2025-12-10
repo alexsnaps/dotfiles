@@ -25,6 +25,7 @@ return {
 		vim.keymap.set("n", "<leader>gc", builtin.git_bcommits, { desc = "[g]it buffer [c]ommits" })
 		vim.keymap.set("n", "<leader>gC", builtin.git_commits, { desc = "[g]it [C]ommits" })
 		vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "[g]it [s]tatus" })
+		--vim.keymap.set("n", "<leader>gh", builtin.git_hunks, { desc = "[g]it [h]unks" })
 		vim.keymap.set("x", "<leader>gc", function()
 			require("telescope.builtin").git_bcommits_range()
 		end, { desc = "[g]it visual [c]ommits" })

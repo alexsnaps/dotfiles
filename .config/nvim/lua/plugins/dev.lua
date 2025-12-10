@@ -22,20 +22,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("i", "<M-CR>", vim.lsp.buf.code_action, { desc = "Code Actions" })
 
 		local map = function(keys, func, desc, mode)
-			mode = mode or "n"
+			mode = mode or { "n", "v" }
 			vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
 
-		map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-		map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-		map("<leader>fr", require("telescope.builtin").lsp_references, "[F]ind [R]eferences")
-		map("<leader>fi", require("telescope.builtin").lsp_incoming_calls, "[F]ind [I]ncoming calls")
-		map("<leader>fo", require("telescope.builtin").lsp_outgoing_calls, "[F]ind [O]utgoing calls")
-		map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-		map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-		map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+		map("gd", require("fzf-lua").lsp_definitions, "[G]oto [D]efinition")
+		map("gI", require("fzf-lua").lsp_implementations, "[G]oto [I]mplementation")
+		map("<leader>dd", require("fzf-lua").lsp_document_diagnostics, "[D]ocument [D]iagnostics")
+		map("<leader>fd", require("fzf-lua").lsp_workspace_diagnostics, "[F]ind [D]iagnostics")
+		map("<leader>fr", require("fzf-lua").lsp_references, "[F]ind [R]eferences")
+		map("<leader>fi", require("fzf-lua").lsp_incoming_calls, "[F]ind [I]ncoming calls")
+		map("<leader>fo", require("fzf-lua").lsp_outgoing_calls, "[F]ind [O]utgoing calls")
+		map("<leader>ds", require("fzf-lua").lsp_document_symbols, "[D]ocument [S]ymbols")
+		map("<leader>ft", require("fzf-lua").lsp_workspace_symbols, "[W]orkspace [S]ymbols")
 		map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+		map("<leader>rr", require("fzf-lua").lsp_code_actions, "Code Actions")
 		map("<leader>cf", vim.lsp.buf.format, "[C]ode [F]ormat", { "n", "x" })
 		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 	end,
@@ -218,8 +219,5 @@ return {
 		---@diagnostics disable: missing-fields
 		opts = {},
 		---@diagnostics enable: missing-fields
-		config = function()
-			vim.keymap.set({ "v", "n" }, "<leader>rr", require("fzf-lua").lsp_code_actions)
-		end,
 	},
 }

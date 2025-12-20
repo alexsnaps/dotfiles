@@ -22,8 +22,13 @@
 # # separated by equals signs.
 #font-family = Hasklug Nerd Font Mono
 font-family = CaskaydiaCove Nerd Font
-font-size = 13
+font-size = 12
+font-style = Light
+font-style-italic = Light Italic
+font-style-bold = Light Bold
+font-style-bold-italic = Light Bold Italic 
 #theme = catppuccin-mocha
+#theme = Nord
 theme = TokyoNight Moon
 background-opacity = 0.9
 #command = tmux new -As0

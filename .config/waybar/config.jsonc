@@ -29,8 +29,8 @@
       "format": "{}",
       "rewrite": {
         "n?vim?(.*)": "$1",
-        "(.*) YouTube (.*)": " $1",
-        "(.*) Mozilla Firefox": "󰖟 $1",
+        "(.*) - YouTube (.*)": " $1",
+        "(.*) — Mozilla Firefox": "󰖟 $1",
         "(.*) \\W Google Search (.*)": "󰜏 $1",
         "tmux (.*)": " [$1]",
         "Steam": " Steam",

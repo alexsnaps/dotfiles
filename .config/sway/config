@@ -16,15 +16,15 @@ set $right l
 # Your preferred terminal emulator
 set $term ghostty
 # Your preferred application launcher
-set $menu wmenu-run
+set $menu rofi -show drun
 
 ### Colors
 # https://thomashunter.name/i3-configurator/
 
 # class                 border  bground text    indicator child_border
-client.focused          #414868 #737aa2 #C8D3F5 #2E9EF4   #285577
+client.focused          #2f334d #2f334d #C8D3F5 #2f334d   #2f334d
 client.focused_inactive #1F2335 #2F334D #C8D3F5 #1F2335   #1F2335
-client.unfocused        #333333 #222222 #C8D3F5 #292D2E   #222222
+client.unfocused        #222436 #181825 #C8D3F5 #292D2E   #222222
 client.urgent           #2F343A #414868 #C53B53 #C53B53   #C53B53
 client.placeholder      #000000 #0C0C0C #C8D3F5 #000000   #0C0C0C
 
@@ -34,13 +34,21 @@ client.background       #2F334D
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg ~/Pictures/Wallpapers/lowpoly_street.png fill
-output * bg ~/Pictures/Wallpapers/tokyo_pink.png fill
+output * bg ~/Pictures/Wallpapers/tokyo_night.jpg fill
 #
 # Example configuration:
 #
-output DP-3 {
-  mode 5120x2160@59.985Hz
+
+output eDP-1 {
+   mode 2880x1800@60Hz
+   scale 1.5
 }
+
+output DP-1 {
+    mode 5120x2160@50Hz
+    scale 1.25
+    position -8000 1000
+  }
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -49,9 +57,9 @@ output DP-3 {
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000 -e' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000 -e'
+         timeout 180 'swaylock -f -c 000000 -e -i /home/alxs/Pictures/Wallpapers/cyberpunk.jpg -F --ring-color d11e7d33 --key-hl-color d11e7d' \
+         timeout 240 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000 -e -i /home/alxs/Pictures/Wallpapers/cyberpunk.jpg -F --ring-color d11e7d33 --key-hl-color d11e7d'
 exec swaync
 
 #
@@ -77,6 +85,14 @@ input "1133:16519:Logitech_G903_LS" {
   natural_scroll enabled
 }
 
+input type:touchpad {
+    tap disabled
+    natural_scroll enabled
+    click_method clickfinger
+}
+
+input * xkb_options compose:menu
+
 ### Key bindings
 #
 # Basics:
@@ -89,7 +105,7 @@ input "1133:16519:Logitech_G903_LS" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym $mod+Escape exec ~/.cargo/bin/yofi
+    bindsym $mod+Escape exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -238,6 +254,13 @@ bar {
 
 include /etc/sway/config.d/*
 
-exec ~/.cargo/bin/xremap --device "Keyboardio Atreus" ~/.config/xremap/atreus.yml --watch
-exec protonmail-bridge --no-window
-exec openrgb --startminimized
+exec {
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+}
+
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
+
+# exec ~/.cargo/bin/xremap --device "Keyboardio Atreus" ~/.config/xremap/atreus.yml --watch
+# exec protonmail-bridge --no-window
+# exec openrgb --startminimized

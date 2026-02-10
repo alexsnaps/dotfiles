@@ -31,6 +31,7 @@ font-style-bold-italic = SemiLight Bold Italic
 #theme = Nord
 theme = tokyonight_moon
 background-opacity = 0.9
+background-blur=20
 #command = tmux new -As0
 split-divider-color = #DDDDDD
 unfocused-split-opacity = 0.85

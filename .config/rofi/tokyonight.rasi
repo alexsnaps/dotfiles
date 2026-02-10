@@ -35,7 +35,7 @@
 
 window {
 	transparency: "real";
-	background-color: #22243644; /*base00 + CC (80% opacity)*/
+	background-color: #222436bb; /*base00 + CC (80% opacity)*/
 }
 
 mainbox {

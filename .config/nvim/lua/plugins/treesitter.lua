@@ -1,7 +1,9 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  lazy = false,
+  build = ':TSUpdate',
   config = function()
-    require("nvim-treesitter.configs").setup {
+    require("nvim-treesitter").setup {
       ensure_installed = { "lua", "rust", "toml", "zig" },
       auto_install = true,
       highlight = {

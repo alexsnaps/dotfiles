@@ -16,6 +16,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 vim.opt.foldenable = false
+vim.opt.colorcolumn = "+0"
+vim.opt.textwidth = 120
 
 vim.g.rust_recommended_style = 0
 vim.g.have_nerd_font = true

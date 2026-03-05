@@ -138,33 +138,14 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    --config = function()
-    --  require("mason-lspconfig").setup({})
-    --end,
   },
   {
     "neovim/nvim-lspconfig",
     config = function()
-      --require('lspconfig').gopls.setup {
-      vim.lsp.config["gopls"] = {
-        --cmd = "~/go/bin/gopls",
-        --root_dir = require("lspconfig/util").root_pattern("go.mod"),
-        settings = {
-          gopls = {
-            ["ui.inlayhint.hints"] = {
-              compositeLiteralFields = true,
-              compositeLiteralTypes = true,
-              constantValues = true,
-              parameterNames = true,
-              functionTypeParameters = true,
-              assignVariableTypes = true,
-            },
-          },
-        },
-      }
-      vim.lsp.config["luals"] = {}
-      vim.lsp.config["clangd"] = {}
-      vim.lsp.config["zls"] = {}
+      vim.lsp.enable("gopls")
+      vim.lsp.enable("lua_ls")
+      vim.lsp.enable("clangd")
+      vim.lsp.enable("zls")
     end,
   },
   {

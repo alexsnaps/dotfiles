@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("<leader>dd", require("fzf-lua").lsp_document_diagnostics, "[D]ocument [D]iagnostics")
     map("<leader>fd", require("fzf-lua").lsp_workspace_diagnostics, "[F]ind [D]iagnostics")
     map("<leader>fr", require("fzf-lua").lsp_references, "[F]ind [R]eferences")
+    map("<leader>fI", require("fzf-lua").lsp_implementations, "[F]ind [I]mplementations")
     map("<leader>fi", require("fzf-lua").lsp_incoming_calls, "[F]ind [I]ncoming calls")
     map("<leader>fo", require("fzf-lua").lsp_outgoing_calls, "[F]ind [O]utgoing calls")
     map("<leader>ds", require("fzf-lua").lsp_document_symbols, "[D]ocument [S]ymbols")

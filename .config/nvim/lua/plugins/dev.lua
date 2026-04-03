@@ -127,8 +127,9 @@ return {
     end,
   },
   {
-    "mrcjkb/rustaceanvim",
-    version = "^5",
+    'mrcjkb/rustaceanvim',
+    version = '^8',
+    lazy = false, -- This plugin is already lazy
   },
   {
     "folke/trouble.nvim",

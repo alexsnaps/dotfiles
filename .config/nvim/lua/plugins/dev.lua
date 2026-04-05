@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, { desc = "Previous warning" })
 
     vim.keymap.set("i", "<M-CR>", vim.lsp.buf.code_action, { desc = "Code Actions" })
+    vim.keymap.set("", "<M-CR>", vim.lsp.buf.code_action, { desc = "Code Actions" })
 
     local map = function(keys, func, desc, mode)
       mode = mode or { "n", "v" }

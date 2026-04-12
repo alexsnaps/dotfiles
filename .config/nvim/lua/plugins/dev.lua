@@ -48,15 +48,54 @@ return {
   -- { "folke/which-key.nvim", lazy = true },
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
-    opts = {
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-      },
-    },
+    config = function()
+      local gitsigns = require('gitsigns')
+
+      local function map(mode, l, r, desc)
+        vim.keymap.set(mode, l, r, { buffer = bufnr, desc = "git [h]unks: " .. desc })
+      end
+
+      -- Navigation
+      map('n', ']h', function()
+        if vim.wo.diff then
+          vim.cmd.normal({ ']h', bang = true })
+        else
+          gitsigns.nav_hunk('next')
+        end
+      end, "next")
+
+      map('n', '[h', function()
+        if vim.wo.diff then
+          vim.cmd.normal({ '[h', bang = true })
+        else
+          gitsigns.nav_hunk('prev')
+        end
+      end, "previous")
+
+      -- Actions
+      map('n', '<leader>hs', gitsigns.stage_hunk, "[s]tage")
+      map('n', '<leader>hr', gitsigns.reset_hunk, "[r]eset")
+
+      map('v', '<leader>hs', function()
+        gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+      end, "[s]tage")
+
+      map('v', '<leader>hr', function()
+        gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+      end, "[r]eset")
+
+      map('n', '<leader>hR', gitsigns.reset_buffer, "[R]eset buffer")
+      map('n', '<leader>hp', gitsigns.preview_hunk, "[p]review")
+      map('n', '<leader>hi', gitsigns.preview_hunk_inline, "preview [i]line")
+
+      map('n', '<leader>hd', gitsigns.diffthis, "[d]iff")
+
+      map('n', '<leader>hQ', function() gitsigns.setqflist('all') end, "set [Q]flist all")
+      map('n', '<leader>hq', gitsigns.setqflist, "set [q]flist")
+
+      -- Toggles
+      map('n', '<leader>hw', gitsigns.toggle_word_diff, "toggle [w]ord diff")
+    end,
   },
   {
     "f-person/git-blame.nvim",

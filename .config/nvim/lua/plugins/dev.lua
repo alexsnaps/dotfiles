@@ -168,7 +168,7 @@ return {
   },
   {
     'mrcjkb/rustaceanvim',
-    version = '^8',
+    version = '^9',
     lazy = false, -- This plugin is already lazy
   },
   {

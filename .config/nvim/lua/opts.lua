@@ -15,6 +15,18 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     --    end
   end,
 })
+vim.api.nvim_create_user_command('RustFeatures', function(opts)
+  local client = vim.lsp.get_clients({ name = "rust-analyzer" })[1]
+  if client then
+    if client.config.settings["rust-analyzer"].cargo == nil then
+      client.config.settings["rust-analyzer"].cargo = { features = opts.fargs }
+    else
+      client.config.settings["rust-analyzer"].cargo.features = opts.fargs
+    end
+    client:notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+  end
+end, { nargs = '*' })
+
 vim.opt.foldenable = false
 vim.opt.colorcolumn = "+0"
 vim.opt.textwidth = 120

@@ -73,3 +73,4 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
 export BAT_THEME=base16
 source ~/.profile
+export PATH=~/.local/bin:$PATH

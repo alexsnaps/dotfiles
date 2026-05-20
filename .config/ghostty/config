@@ -41,6 +41,8 @@ keybind = page_down=scroll_page_down
 keybind = shift+up=scroll_page_up
 keybind = shift+down=scroll_page_down
 
+window-show-tab-bar = never
+
 # window-padding-x = 2
 #
 # # Spacing around the equals sign does not matter.
